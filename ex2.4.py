@@ -21,20 +21,20 @@ def average_vowels_per_word():
         if start_counting: 
             words = line.split()
             for word in words:
-                clean_word = ''.join(filter(str.isalpha, word))  # Remove punctuation
+                clean_word = ''.join(filter(str.isalpha, word))  
                 if clean_word:
                     vowel_count += count_vowels(clean_word)
                     word_count += 1
 
     if word_count == 0:
-        return 0  # Avoid division by zero
+        return 0  
 
     average_vowels = vowel_count / word_count
     return average_vowels
 
-# Time the function using timeit, excluding file reading and print output
+
 time_taken = timeit.timeit('average_vowels_per_word()', globals=globals(), number=100)
 
-# Calculate the average time across the 100 repetitions
+
 average_time = time_taken / 100
 print(f"Average time to compute the average number of vowels (over 100 runs): {average_time:.6f} seconds")
