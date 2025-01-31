@@ -20,7 +20,7 @@ data_1000 = data[:1000]
 
 times = []
 for i in range(1000):
-    time_taken = timeit.timeit(lambda: [size_42(j) for j in data_1000], number=1)
+    time_taken = timeit.repeat(lambda: [size_42(j) for j in data_1000], repeat=1000, number=1)
     times.append(time_taken)
 
 plt.figure(figsize=(10, 10))
