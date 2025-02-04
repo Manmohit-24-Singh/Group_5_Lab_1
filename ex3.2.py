@@ -20,12 +20,12 @@ with open('large-file.json', 'r') as lrg_data:
 records = [1000, 2000, 5000, 10000]
 avrg_times = []
 
-for count in records:
-    subset = data[:count]
+for i in records:
+    subset = data[:i]
     time_taken = timeit.timeit(lambda: [size_42(i) for i in subset], number=100)
     average_time = time_taken / 100
     avrg_times.append(average_time)
-    print(f"Average time for {count} records: {average_time:.6f} seconds")
+    print(f"Average time for {i} records: {average_time:.6f} seconds")
 
 slope, intercept = np.polyfit(records, avrg_times, 1)
 
